@@ -1,27 +1,26 @@
+# api/index.py
 from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
-import os, base64, traceback
+import os, base64
 
 app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
-async def login_page():
-    return HTMLResponse("""
-        <form action="/login" method="post">
-            <input type="text" name="username" required>
-            <input type="password" name="password" required>
-            <input type="submit" value="submit">
+async def read_root():
+    return """
+        <form action="/api/login" method="post">
+            <input name="username" placeholder="username" required>
+            <input name="password" type="password" placeholder="password" required>
+            <input type="submit" value="Login">
         </form>
-    """)
+    """
 
-@app.post("/login")
+@app.post("/login", response_class=HTMLResponse)
 async def login(username: str = Form(...), password: str = Form(...)):
-    try:
-        if username == "admin" and password == "password123":
-            flag = os.getenv("FLAG", "FLAG NOT FOUND")
-            res = HTMLResponse(content="ACCESS GRANTED<br><img src='/flag.png'/>")
-            res.set_cookie(key="SESSIONID", value=base64.b64encode(flag.encode()).decode())
-            return res
-        return HTMLResponse(content="ACCESS DENIED", status_code=403)
-    except Exception:
-        return HTMLResponse(content=f"<pre>{traceback.format_exc()}</pre>", status_code=500)
+    if username == "admin" and password == "admin":
+        flag = os.getenv("FLAG", "FLAG NOT FOUND")
+        session = base64.b64encode(flag.encode()).decode()
+        res = HTMLResponse(content="ACCESS GRANTED<br><img src='/flag.png'>")
+        res.set_cookie("SESSIONID", session)
+        return res
+    return HTMLResponse("ACCESS DENIED", status_code=403)
