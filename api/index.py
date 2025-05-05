@@ -3,9 +3,14 @@ from fastapi.responses import HTMLResponse
 import base64
 import os
 from dotenv import load_dotenv
+from fastapi.staticfiles import StaticFiles  # Add this import
+from pathlib import Path  # Add this import
 
 load_dotenv()
 app = FastAPI()
+
+# Mount the static directory
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 USERS = {
     "admin": "supersecurepassword"
@@ -17,7 +22,7 @@ def show_form():
         <html>
         <head>
             <title>Halib Al-Khair</title>
-            <link rel="stylesheet" href="../static/css/main.css">
+            <link rel="stylesheet" href="/static/css/main.css">
         </head>
         <style>
         /* Global Styles */
@@ -434,7 +439,7 @@ img[alt="meme image"] {}
                 </section>
 
                <h1 style="margin-left: 500px;">ACCESS GRANTED</h1>
-            <img src="../static/images/flag.png" alt="flag" style="margin-left: 500px;" />
+            <img src="/static/images/flag.png" alt="flag" style="margin-left: 500px;" />
 
                 <section class="featured-products">
                     <h2>Our Premium Products</h2>
