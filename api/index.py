@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+flag = os.getenv("FLAG", "CTF{dummy_flag}")
+print(flag)  # For debugging
+
 
 USERS = {
     "admin": "supersecurepassword"
