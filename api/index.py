@@ -17,7 +17,7 @@ def show_form():
         <html>
         <head>
             <title>Halib Al-Khair</title>
-            <link rel="stylesheet" href="/static/css/main.css">
+            <link rel="stylesheet" href="../static/css/main.css">
         </head>
         <body>
             <header>
