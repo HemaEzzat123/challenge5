@@ -205,7 +205,7 @@ img[alt="meme image"] {}
                     <p>Delivering the finest dairy products since 1985</p>
                 </section>
 
-                <section style="margin-left: 300px;" class="login">
+                <section style="margin-left: 500px;" class="login">
                     <h2>Vault Login</h2>
                     <form method="POST">
                         <input name="username" type="text" placeholder="username" required />
@@ -433,8 +433,8 @@ img[alt="meme image"] {}
                     <p>Delivering the finest dairy products since 1985</p>
                 </section>
 
-               <h1 style="margin-left: 300px;">ACCESS GRANTED</h1>
-            <img src="../static/images/flag.png" alt="flag" style="margin-left: 300px;" />
+               <h1 style="margin-left: 500px;">ACCESS GRANTED</h1>
+            <img src="/static/images/flag.png" alt="flag" style="margin-left: 500px;" />
 
                 <section class="featured-products">
                     <h2>Our Premium Products</h2>
