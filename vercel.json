@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "api/index.py", "use": "@vercel/python" }
-  ],
+  "builds": [{ "src": "api/index.py", "use": "@vercel/python" }],
   "routes": [
     { "src": "/css/(.*)", "dest": "static/css/$1" },
     { "src": "/flag.png", "dest": "static/flag.png" },
