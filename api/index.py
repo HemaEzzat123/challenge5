@@ -516,7 +516,7 @@ async def login(username: str = Form(...), password: str = Form(...)):
                 <div class="flag-container">
                     <h1>ACCESS GRANTED</h1>
                     <img src="/static/images/flag.png" alt="flag">
-                    <p style="margin-top: 15px;">If the image is not visible, you can also check the SESSIONID cookie or visit <a href="/flag-image" target="_blank">/flag-image</a> directly.</p>
+                    <p style="margin-top: 15px;">If the image is not visible, you can also check it by visit <a href="/flag-image" target="_blank">/flag-image</a> directly.</p>
                 </div>
 
                 <section class="featured-products">
