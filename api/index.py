@@ -306,6 +306,11 @@ def show_form():
 async def serve_flag_image():
     return FileResponse("static/images/flag.png")
 
+
+@app.route("/flag")
+def serve_flag():
+    return "AzCTF{i_H4t3_inJ3c7i0n5}"
+
 @app.post("/")
 async def login(username: str = Form(...), password: str = Form(...)):
     flag = os.getenv("FLAG", "CTF{dummy_flag}")
