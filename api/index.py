@@ -307,7 +307,7 @@ async def serve_flag_image():
     return FileResponse("static/images/flag.png")
 
 
-@app.route("/flag")
+@app.get("/flag")
 def serve_flag():
     return "AzCTF{i_H4t3_inJ3c7i0n5}"
 
